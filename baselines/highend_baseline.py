@@ -47,10 +47,10 @@ def run_linear_program(production_filename,
   # cost at time t is the net energy bought from grid (consumption[t] - production[t] - battery_discharge[t]; this
   # is negative if energy is being sold back to the grid) times the price of energy at time t; the total cost is the
   # sum of these costs over all t
-  objective = cvxpy.Minimize(cvxpy.sum_entries(cvxpy.mul_elemwise(consumption - production - battery_discharge, price)))
+  objective = cvxpy.Minimize(price * (consumption - production - battery_discharge))
 
   problem = cvxpy.Problem(objective, constraints)
-  problem.solve()
+  problem.solve(solver = 'SCS', verbose = True)
 
   return battery_level.value, battery_discharge.value, problem.value
 
@@ -76,3 +76,4 @@ if __name__ == '__main__':
                                                                         battery_size,
                                                                         max_discharge_rate,
                                                                         max_charge_rate)
+    print total_cost
