@@ -1,6 +1,5 @@
 import cvxpy
 import numpy as np
-import csv
 import sys
 
 def run_linear_program(production_filename,
