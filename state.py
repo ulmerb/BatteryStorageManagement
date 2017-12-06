@@ -20,7 +20,7 @@ class State(object):
 
 	#question about amount to sell - I presume that comes out of charge
     #pass in 0's for entries that aren't corresponding to an action, and a value for an action that you wish to take
-	def reward(self, amountToSell, amountToCharge, amountToDischarge):
+	def reward(self, amountToCharge, amountToDischarge):
 		price = 0
 		if self.time < 9 or self.time >= 22:
 			price = .212
@@ -31,7 +31,7 @@ class State(object):
 		if amountToDischarge > self.charge or amountToSell > self.charge or amountToCharge > self.production:
 			return -float("inf")
 		netUsage = self.consumption - self.production - amountToCharge + amountToDischarge
-		return -1 * (price * netUsage) + price * amountToSell
+		return -1 * (price * netUsage)
 
 #Returns history of stdDeviations from mean, and guess of (mean, stdDev) for next day
 def getTransitionProbabilitiesForConsumption(state, history=None):
