@@ -88,7 +88,7 @@ def online_algorithm(production_filename,
                      battery_size,
                      max_discharge_rate,
                      max_charge_rate):
-
+  
   num_samples = 25
   depth = 12
 
