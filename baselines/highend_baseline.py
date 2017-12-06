@@ -1,6 +1,5 @@
 import cvxpy
 import numpy as np
-import csv
 import sys
 
 def run_linear_program(production_filename,
@@ -50,7 +49,7 @@ def run_linear_program(production_filename,
   objective = cvxpy.Minimize(price * (consumption - production - battery_discharge))
 
   problem = cvxpy.Problem(objective, constraints)
-  problem.solve(solver = 'SCS', verbose = True)
+  problem.solve(solver = 'SCS', verbose = False)
 
   return battery_level.value, battery_discharge.value, problem.value
 
