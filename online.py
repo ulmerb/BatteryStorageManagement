@@ -90,7 +90,7 @@ def online_algorithm(production_filename,
                      max_discharge_rate,
                      max_charge_rate):
   
-  num_samples = 25
+  num_samples = 5
   depth = 12
 
   production = np.genfromtxt(production_filename)
