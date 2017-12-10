@@ -5,6 +5,7 @@ from no_battery import no_battery
 import pickle
 import os
 
+
 cities = ['losangeles', 'sanfrancisco', 'phoenix']
 # in kwh
 battery_sizes = [20., 40., 80.]
@@ -24,7 +25,7 @@ for city in cities:
       
       production = 'data/cleaned_data/production/' + production_filename
       consumption = 'data/cleaned_data/consumption/' + consumption_filename
-      price = 'data/cleaned_data/price/simple_daily_schedule.csv'
+      price = 'data/cleaned_data/price/simple_daily_schedule_new.csv'
       
       result = {}
 
@@ -67,7 +68,7 @@ for city in cities:
                                             'battery_discharge' : online_battery_discharge,
                                             'cost' : online_cost}}
 
-      pickle.dump(result, open(p_name + ':' + c_name + ':simple_daily_schedule.p', 'wb')) 
+      pickle.dump(result, open(p_name + ':' + c_name + ':simple_daily_schedule_new.p', 'wb')) 
 
 
 

@@ -2,7 +2,6 @@ import numpy as np
 import cvxpy
 import sys
 import time
-import utility
 import matplotlib.pyplot as plt
 hours_in_year = 8760
 hours_in_day = 24
